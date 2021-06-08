@@ -63,11 +63,57 @@ class VacantJobs extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
-              Divider(thickness: 0.8)
+              const Divider(thickness: 0.8),
+              Container(
+                // height: 70,
+                // color: Colors.red,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                    // vertical: 4.0,
+                  ),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          Text('СМЕНА'),
+                          Text(
+                            '12',
+                            style: TextStyle(
+                              height: 1.05,
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            'часов',
+                            style: TextStyle(
+                              height: 0.8,
+                              fontSize: 14,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      // ignore: sized_box_for_whitespace
+                      Container(
+                        height: 50,
+                        child: const VerticalDivider(
+                          thickness: 1,
+                          width: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Divider(thickness: 0.8),
             ],
           ),
         ],
