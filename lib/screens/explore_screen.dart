@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:tinder_clone/data/data.dart';
 import 'package:tinder_clone/data/icons_json.dart';
-import 'package:tinder_clone/screens/vacant_jobs.dart';
+import 'package:tinder_clone/screens/vacant_jobs_screen.dart';
 import 'package:tinder_clone/screens/widgets/girls.dart';
 import 'package:tinder_clone/theme/colors.dart';
 

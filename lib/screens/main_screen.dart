@@ -5,6 +5,8 @@ import 'package:tinder_clone/screens/likes_screen.dart';
 import 'package:tinder_clone/theme/colors.dart';
 
 class MainScreen extends StatefulWidget {
+  static String routeName = '/home';
+
   const MainScreen({Key? key}) : super(key: key);
 
   @override

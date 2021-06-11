@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tinder_clone/routes.dart';
 import 'package:tinder_clone/screens/main_screen.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: MainScreen(),
+    initialRoute: MainScreen.routeName,
+    routes: routes,
   ));
 }
