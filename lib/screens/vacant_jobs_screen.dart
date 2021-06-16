@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tinder_clone/screens/job_details_screen.dart';
+import 'package:tinder_clone/screens/job_details_screen/job_details_screen.dart';
 import 'package:tinder_clone/theme/colors.dart';
 
 class VacantJobs extends StatelessWidget {
