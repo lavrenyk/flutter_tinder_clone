@@ -3,3 +3,4 @@ export 'charts_json.dart';
 export 'explore_json.dart';
 export 'icons_json.dart';
 export 'likes_json.dart';
+export 'companies.dart';

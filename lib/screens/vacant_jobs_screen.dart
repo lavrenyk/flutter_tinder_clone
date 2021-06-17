@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tinder_clone/screens/job_details_screen/job_details_screen.dart';
 import 'package:tinder_clone/theme/colors.dart';
 
@@ -61,8 +62,19 @@ class VacantJobs extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(height: 7),
+                            const SizedBox(height: 5),
                             const Text("Аптека 'Живика'"),
+                            const SizedBox(height: 5),
+                            RatingBarIndicator(
+                              rating: 4,
+                              itemBuilder: (context, index) => const Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              itemCount: 5,
+                              itemSize: 10.0,
+                              direction: Axis.horizontal,
+                            ),
                           ],
                         ),
                       ),

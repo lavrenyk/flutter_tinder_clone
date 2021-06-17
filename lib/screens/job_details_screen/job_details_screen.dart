@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tinder_clone/screens/job_details_screen/components/body.dart';
 import 'package:tinder_clone/screens/job_details_screen/components/bottom_bar.dart';
 
@@ -18,12 +19,27 @@ class JobDetails extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const Text(
-              'Аптека "Живика"',
-              style: TextStyle(
-                color: Colors.black87,
-                fontSize: 18,
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const Text(
+                  'Аптека "Живика"',
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 18,
+                  ),
+                ),
+                RatingBarIndicator(
+                  rating: 4.5,
+                  itemBuilder: (context, index) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                  ),
+                  itemCount: 5,
+                  itemSize: 15.0,
+                  direction: Axis.horizontal,
+                ),
+              ],
             ),
             const SizedBox(width: 10.0),
             Container(

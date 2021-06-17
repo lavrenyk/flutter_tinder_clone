@@ -50,13 +50,6 @@ class _ExploreScreenState extends State<ExploreScreen>
         minWidth: size.width * 0.75,
         minHeight: size.height * 0.6,
         stackNum: 3,
-        // cardBuilder: (context, index) => Girls(
-        //   size: size,
-        //   image: itemsTemp[index]['img'],
-        //   name: itemsTemp[index]['name'],
-        //   age: itemsTemp[index]['age'],
-        //   likes: itemsTemp[index]['likes'],
-        // ),
         cardBuilder: (context, index) => VacantJobs(),
         swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
           print(orientation);
