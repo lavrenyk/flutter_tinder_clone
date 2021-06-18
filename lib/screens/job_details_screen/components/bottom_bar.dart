@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tinder_clone/screens/job_request_screen/job_request_screen.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -62,7 +63,9 @@ class _BottomBarState extends State<BottomBar> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, JobRequestScreen.routeName);
+                },
                 child: const Text(
                   "Откликнуться",
                   style: TextStyle(

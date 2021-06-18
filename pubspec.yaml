@@ -40,7 +40,6 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   table_calendar: ^3.0.0
   syncfusion_flutter_calendar: ^19.1.69
-  syncfusion_localizations: ^18.1.36
 
 dev_dependencies:
   flutter_test:

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tinder_clone/screens/job_details_screen/components/body.dart';
-import 'package:tinder_clone/screens/job_details_screen/components/bottom_bar.dart';
+import 'package:tinder_clone/screens/job_request_screen/components/job_request_body.dart';
 import 'package:tinder_clone/screens/widgets/company_info_app_bar.dart';
 
-class JobDetails extends StatelessWidget {
-  static String routeName = '/job_details';
+class JobRequestScreen extends StatelessWidget {
+  static String routeName = '/job_request';
 
-  const JobDetails({Key? key}) : super(key: key);
+  const JobRequestScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +17,7 @@ class JobDetails extends StatelessWidget {
         backgroundColor: Colors.white,
         title: const ComapnyInfoAppBar(),
       ),
-      body: Body(),
-      bottomNavigationBar: BottomBar(),
+      body: const JobRequestBody(),
     );
   }
 }

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:table_calendar/table_calendar.dart';
 import 'package:tinder_clone/data/data.dart';
 import 'package:tinder_clone/screens/widgets/job_schedule.dart';
 import 'package:tinder_clone/screens/widgets/work_info.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 class Body extends StatelessWidget {
   final List<bool> _selected = List.generate(3, (index) => false);
