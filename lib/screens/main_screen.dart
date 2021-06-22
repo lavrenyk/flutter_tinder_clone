@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tinder_clone/screens/explore_screen.dart';
 import 'package:tinder_clone/screens/likes_screen.dart';
+import 'package:tinder_clone/screens/select_vacant_jobs_type.dart';
+import 'package:tinder_clone/screens/user_account/user_account_screen.dart';
 import 'package:tinder_clone/theme/colors.dart';
 
 class MainScreen extends StatefulWidget {
@@ -29,9 +31,10 @@ class _MainScreenState extends State<MainScreen> {
       index: pageIndex,
       children: [
         ExploreScreen(),
+        // isVacantJobsTypeSelected ? SelectVacantJobsType() : Text(),
         LikesScreen(),
         ExploreScreen(),
-        ExploreScreen(),
+        UserAccountScreen(),
       ],
     );
   }
