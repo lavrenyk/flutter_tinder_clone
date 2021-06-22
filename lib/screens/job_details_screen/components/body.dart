@@ -314,7 +314,7 @@ class JobDesc extends StatelessWidget {
                     child: Icon(Icons.calendar_today_outlined),
                   ),
                 ],
-              )
+              ),
             ],
           ),
           const Divider(thickness: 0.8),
