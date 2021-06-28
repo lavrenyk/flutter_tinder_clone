@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:syncfusion_flutter_core/localizations.dart';
 
 class JobSchedule extends StatelessWidget {
   const JobSchedule({Key? key}) : super(key: key);

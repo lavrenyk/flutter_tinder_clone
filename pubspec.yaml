@@ -40,6 +40,8 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   table_calendar: ^3.0.0
   syncfusion_flutter_calendar: ^19.1.69
+  syncfusion_flutter_charts: ^19.1.69+1
+  local_auth: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +88,9 @@ flutter:
         - asset: assets/fonts/ProximaNova-Regular.ttf
         - asset: assets/fonts/ProximaNova-Bold.ttf
           weight: 700
+    - family: CourierPrime
+      fonts:
+        - asset: assets/fonts/CourierPrime-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

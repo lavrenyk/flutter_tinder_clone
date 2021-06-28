@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:tinder_clone/screens/widgets/credit_card.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class Body extends StatelessWidget {
         children: [
           // ignore: sized_box_for_whitespace
           Container(
-            height: 100,
+            height: 110,
             child: Row(
               // ignore: prefer_const_literals_to_create_immutables
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,6 +47,17 @@ class Body extends StatelessWidget {
                       "+7 (915) 008-88-84",
                       style: TextStyle(fontSize: 14.0),
                     ),
+                    // const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        const Text("Работник"),
+                        const SizedBox(width: 10.0),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.badge_outlined),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ],
@@ -55,6 +67,7 @@ class Body extends StatelessWidget {
           const Divider(thickness: 0.5),
           const SizedBox(height: 5.0),
 
+          // ignore: sized_box_for_whitespace
           Container(
             height: 80,
             child: Row(
@@ -118,6 +131,43 @@ class Body extends StatelessWidget {
             ),
           ),
           const Divider(thickness: 0.5),
+          const SizedBox(height: 10.0),
+          Container(
+            height: 150,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black12,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Нет активной работы!",
+                  style: TextStyle(fontSize: 18.0, color: Colors.black45),
+                ),
+                const SizedBox(height: 10),
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    side: const BorderSide(
+                      width: 1,
+                      color: Colors.black12,
+                    ),
+                  ),
+                  child: const Text(
+                    "Перейти к выбору",
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          const CreditCard(),
         ],
       ),
     );

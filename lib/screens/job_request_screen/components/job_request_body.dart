@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:tinder_clone/screens/widgets/chart.dart';
 import 'package:tinder_clone/screens/widgets/job_schedule.dart';
 import 'package:tinder_clone/screens/widgets/work_info.dart';
 
@@ -166,8 +167,8 @@ class JobRequestBody extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 40),
         const Divider(thickness: 2),
+        Chart(),
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

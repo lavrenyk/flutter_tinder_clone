@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
@@ -33,54 +35,51 @@ class VacantJobs extends StatelessWidget {
           ),
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 90.0,
-                      height: 90.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        color: Colors.grey.withOpacity(0.1),
-                        image: const DecorationImage(
-                            image: AssetImage('assets/images/zhivika.jpeg')),
+              Row(
+                children: [
+                  Container(
+                    width: 90.0,
+                    height: 90.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.0),
+                      color: Colors.grey.withOpacity(0.1),
+                      image: const DecorationImage(
+                          image: AssetImage('assets/images/zhivika.jpeg')),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          const Text(
+                            'Рабочий склада',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          const Text("Аптека 'Живика'"),
+                          const SizedBox(height: 5),
+                          RatingBarIndicator(
+                            rating: 4,
+                            itemBuilder: (context, index) => const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                            ),
+                            itemCount: 5,
+                            itemSize: 10.0,
+                            direction: Axis.horizontal,
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 10.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            const Text(
-                              'Рабочий склада',
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 5),
-                            const Text("Аптека 'Живика'"),
-                            const SizedBox(height: 5),
-                            RatingBarIndicator(
-                              rating: 4,
-                              itemBuilder: (context, index) => const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              itemCount: 5,
-                              itemSize: 10.0,
-                              direction: Axis.horizontal,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const Divider(thickness: 0.8),
               SingleChildScrollView(
@@ -138,6 +137,7 @@ class VacantJobs extends StatelessWidget {
                     width: double.infinity,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         const Text(
                           'Обязанности:',
@@ -146,12 +146,12 @@ class VacantJobs extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 5.0),
-                        Text('- Погрузочно-разгрузочные работы;'),
-                        Text('- Прием товара;'),
-                        Text('- Сортировка товара по группам;'),
-                        Text('- Участие в инвентаризациях;'),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 5.0),
+                        const Text('- Погрузочно-разгрузочные работы;'),
+                        const Text('- Прием товара;'),
+                        const Text('- Сортировка товара по группам;'),
+                        const Text('- Участие в инвентаризациях;'),
+                        const SizedBox(height: 10.0),
                         const Text(
                           'Требования:',
                           style: TextStyle(
@@ -159,13 +159,13 @@ class VacantJobs extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 5.0),
-                        Text('- Опыт работы на складе от 6 месяцев;'),
-                        Text('- Знание технологий складского хозяйства;'),
-                        Text('- Уверенное пользование ПК;'),
-                        Text(
+                        const SizedBox(height: 5.0),
+                        const Text('- Опыт работы на складе от 6 месяцев;'),
+                        const Text('- Знание технологий складского хозяйства;'),
+                        const Text('- Уверенное пользование ПК;'),
+                        const Text(
                             '- Умение организовать, контролировать и обеспечивать полноту и своевременность исполнения работ;'),
-                        Text(
+                        const Text(
                             '- Ответственность, активность, обучаемость, коммуникабельность;'),
                       ],
                     ),

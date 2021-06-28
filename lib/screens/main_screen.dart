@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tinder_clone/screens/explore_screen.dart';
-import 'package:tinder_clone/screens/likes_screen.dart';
-import 'package:tinder_clone/screens/select_vacant_jobs_type.dart';
+import 'package:tinder_clone/screens/likes_screen/likes_screen.dart';
 import 'package:tinder_clone/screens/user_account/user_account_screen.dart';
 import 'package:tinder_clone/theme/colors.dart';
 
@@ -29,12 +28,13 @@ class _MainScreenState extends State<MainScreen> {
   Widget getBody() {
     return IndexedStack(
       index: pageIndex,
+      // ignore: prefer_const_literals_to_create_immutables
       children: [
-        ExploreScreen(),
+        const UserAccountScreen(),
+        const ExploreScreen(),
         // isVacantJobsTypeSelected ? SelectVacantJobsType() : Text(),
-        LikesScreen(),
-        ExploreScreen(),
-        UserAccountScreen(),
+        const LikesScreen(),
+        const ExploreScreen(),
       ],
     );
   }
@@ -42,17 +42,17 @@ class _MainScreenState extends State<MainScreen> {
   PreferredSizeWidget getAppBar() {
     var items = [
       pageIndex == 0
-          ? 'assets/images/explore_active_icon.svg'
-          : 'assets/images/explore_icon.svg',
-      pageIndex == 1
-          ? 'assets/images/likes_active_icon.svg'
-          : 'assets/images/likes_icon.svg',
-      pageIndex == 2
-          ? 'assets/images/chat_active_icon.svg'
-          : 'assets/images/chat_icon.svg',
-      pageIndex == 3
           ? 'assets/images/account_active_icon.svg'
           : 'assets/images/account_icon.svg',
+      pageIndex == 1
+          ? 'assets/images/explore_active_icon.svg'
+          : 'assets/images/explore_icon.svg',
+      pageIndex == 2
+          ? 'assets/images/likes_active_icon.svg'
+          : 'assets/images/likes_icon.svg',
+      pageIndex == 3
+          ? 'assets/images/chat_active_icon.svg'
+          : 'assets/images/chat_icon.svg',
     ];
     return AppBar(
       backgroundColor: white,

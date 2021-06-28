@@ -18,6 +18,8 @@ class _ExploreScreenState extends State<ExploreScreen>
     with TickerProviderStateMixin {
   List itemsTemp = [];
   int itemsLength = 0;
+  double swipeLeftPosition = 0;
+  double swipeRightPosition = 0;
 
   @override
   void initState() {
@@ -40,25 +42,170 @@ class _ExploreScreenState extends State<ExploreScreen>
   Widget getBody() {
     var size = MediaQuery.of(context).size;
 
-    return Container(
-      padding: const EdgeInsets.only(bottom: 130, top: 10),
-      height: size.height,
-      child: TinderSwapCard(
-        totalNum: itemsLength,
-        maxWidth: size.width,
-        maxHeight: size.height - 20.0,
-        minWidth: size.width * 0.75,
-        minHeight: size.height * 0.6,
-        stackNum: 3,
-        cardBuilder: (context, index) => VacantJobs(),
-        swipeCompleteCallback: (CardSwipeOrientation orientation, int index) {
-          print(orientation);
-          if (orientation == CardSwipeOrientation.RIGHT) {
-            print(itemsTemp[index]);
-            likes_json.add({'img': itemsTemp[index]['img'], 'active': true});
-          }
-        },
-      ),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          // ignore: sized_box_for_whitespace
+          child: Container(
+            height: 60.0,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const FilterButton(
+                    label: 'Показать все',
+                    isActive: true,
+                  ),
+                  const VerticalDivider(),
+                  const FilterButton(label: 'Работа на складе'),
+                  const FilterButton(label: 'Общепит'),
+                  const FilterButton(label: 'Сфера услуг'),
+                  const FilterButton(label: 'Охрана'),
+                  const FilterButton(label: 'Коммунальное хозяйство'),
+                  const FilterButton(label: 'Разнорабочие'),
+                ],
+              ),
+            ),
+          ),
+        ),
+        Stack(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(bottom: 290, top: 10.0),
+              height: size.height,
+              child: TinderSwapCard(
+                totalNum: itemsLength,
+                maxWidth: size.width,
+                maxHeight: size.height - 20.0,
+                minWidth: size.width * 0.75,
+                minHeight: size.height * 0.5,
+                stackNum: 3,
+                cardBuilder: (context, index) => VacantJobs(),
+                swipeUpdateCallback:
+                    (DragUpdateDetails details, Alignment align) {
+                  /// Get swiping card's alignment
+                  if (align.x < 0) {
+                    //Card is LEFT swiping
+                    setState(
+                      () {
+                        if (align.x > -3) {
+                          swipeLeftPosition = 0;
+                        } else if (align.x > -6.5) {
+                          swipeLeftPosition = 1;
+                        } else {
+                          swipeLeftPosition = 0;
+                        }
+                      },
+                    );
+                  } else if (align.x > 0) {
+                    //Card is RIGHT swiping
+                    setState(
+                      () {
+                        if (align.x < 3) {
+                          swipeRightPosition = 0;
+                        } else if (align.x < 6.5) {
+                          swipeRightPosition = 1;
+                        } else {
+                          swipeRightPosition = 0;
+                        }
+                      },
+                    );
+                  }
+                },
+                swipeCompleteCallback:
+                    (CardSwipeOrientation orientation, int index) {
+                  if (orientation == CardSwipeOrientation.LEFT) {
+                    setState(() {
+                      swipeLeftPosition = 0;
+                    });
+                  }
+                  if (orientation == CardSwipeOrientation.RIGHT) {
+                    setState(() {
+                      swipeRightPosition = 0;
+                    });
+                    likes_json
+                        .add({'img': itemsTemp[index]['img'], 'active': true});
+                  }
+                  if (orientation == CardSwipeOrientation.RECOVER) {
+                    setState(() {
+                      swipeLeftPosition = 0;
+                      swipeRightPosition = 0;
+                    });
+                  }
+                },
+              ),
+            ),
+            Positioned(
+              right: -5,
+              child: Opacity(
+                opacity: swipeRightPosition,
+                child: Container(
+                  height: 200.0,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.7),
+                    border: Border.all(
+                      color: Colors.green,
+                      width: 3.0,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(5),
+                        bottomLeft: Radius.circular(5)),
+                  ),
+                  child: Center(
+                    child: RotatedBox(
+                      quarterTurns: 3,
+                      child: Text(
+                        "В ЗАКЛАДКИ".toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: -5,
+              child: Opacity(
+                opacity: swipeLeftPosition,
+                child: Container(
+                  height: 200.0,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.7),
+                    border: Border.all(
+                      color: Colors.red,
+                      width: 3.0,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(5),
+                        bottomRight: Radius.circular(5)),
+                  ),
+                  child: Center(
+                    child: RotatedBox(
+                      quarterTurns: 3,
+                      child: Text(
+                        "Неинтересно".toUpperCase(),
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -98,6 +245,36 @@ class _ExploreScreenState extends State<ExploreScreen>
               ),
             );
           }),
+        ),
+      ),
+    );
+  }
+}
+
+class FilterButton extends StatelessWidget {
+  final String label;
+  final bool isActive;
+
+  const FilterButton({
+    Key? key,
+    required this.label,
+    this.isActive = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      child: TextButton(
+        onPressed: () {},
+        child: Text(label),
+        style: TextButton.styleFrom(
+          side: const BorderSide(
+            width: 1,
+            color: Colors.black12,
+          ),
+          backgroundColor:
+              isActive ? Colors.amber.withOpacity(0.5) : Colors.white,
         ),
       ),
     );
